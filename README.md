@@ -1,6 +1,6 @@
 # ProjetoTesteSoftwareBiblioteca
 
-# Atividade referente a disciplian de TESTE DE SOFTAWRE
+# Atividade referente a disciplian de TESTE DE SOFTTWARE
 
 # Texto na integra (apresendado pelo professor)
 A biblioteca tem nome, mantém catálogo de livros onde cada livro tem título, autor e número único de catálogo. Há usuários da biblioteca registrados, cada com nome único de usuário. Usuário da biblioteca pode emprestar livro e devolver o livro emprestado para o sistema. No entanto, cada transação, cada realização de empréstimo ou devolução de livro deve ser registrada por uma bibliotecária. A bibliotecária tem que registrar novo usuário da biblioteca no SAB.
