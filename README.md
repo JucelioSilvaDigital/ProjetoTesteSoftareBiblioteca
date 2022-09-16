@@ -28,5 +28,10 @@ O livro para ser emprestado, tem que ter pelo menos 2 exemplares. O usuário nã
 # Mudanças significativas
 - Usuario com nome unico de usuario;
 - Precisa de uma bibliotecaria para realizar a transação de emprestimo ou devolução;
-- A bibliotecaria tambem é respopnsavel por cadastrar o usuário na biblioteca (logo precisamos da class bibliotecaria);
+- A bibliotecaria tambem é respopnsavel por cadastrar o usuário na biblioteca;
+- Implementar uma condição de incluir exemplares de determinado livro; 
 - Mostrar livros disponiveis e já emprestados por ordem numerica do catalogo; 
+
+# Sendo assim
+- Precisamos da class bibliotecaria;
+- Podemos tambem trabalhar com uma class exemplar;
