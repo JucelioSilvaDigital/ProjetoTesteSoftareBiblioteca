@@ -1,39 +1,36 @@
 import java.util.ArrayList;
 
-public class Usuario extends Pessoa {
-    private Bibliotecaria responsavel; //pessoa que o cadastrou    
-	private ArrayList<Livro> listaLivrosEmprestados = new ArrayList<>();
-
- 
-
-    public Usuario(Pessoa nomePessoa, Bibliotecaria responsavel) {
-        super(nomePessoa);
-        this.responsavel = responsavel;
-    }
-
-
-    //mostra o responsavel pelo cadatro do usuario
-    public Bibliotecaria getResponsavel() {
-        return responsavel;
-    }
-
-
-    //cadastra o responsavel pelo cadastro do usuario
-    public void setResponsavel(Bibliotecaria responsavel) {
-        this.responsavel = responsavel;
-    }
-
-
-    //mostra a lista de livros que o usuario pegou emprestado
-    public ArrayList<Livro> getListaLivrosEmprestados() {
-        return listaLivrosEmprestados;
-    }
-
-
-    //adiciona livro a lista de livros pego emprestado pelo usuario
-    public void setListaLivrosEmprestados(Livro livro) {
-        this.listaLivrosEmprestados.add(livro);
-    }
-
+public class Usuario {
+	private String nome;
+	private ArrayList<Livro> listaLivros = new ArrayList<>();
+	public Usuario(String nome) {
+		super();
+		this.nome = nome;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public ArrayList<Livro> getListaLivros() {
+		return listaLivros;
+	}
+	public void setListaLivros(ArrayList<Livro> listaLivros) {
+		this.listaLivros = listaLivros;
+	}
+	
+	public void anexaLivroEmprestado(Livro livro) {
+		listaLivros.add(livro);
+	}
+	
+	public boolean desanexaLivroEmprestado(Livro livro) {
+		if(listaLivros.contains(livro)) {
+			listaLivros.remove(livro);
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }
