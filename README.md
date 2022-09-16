@@ -14,7 +14,7 @@
 - autor;
 - nr_unico;
 - disponibilidade; //true/false
-- usuarioEmprestado;//que pegou emprestado
+- usuarioEmprestado;//quem pegou emprestado
 # Atributos de Usuario
 - nome;
 - livros; //livros emprestados pelo usuario
