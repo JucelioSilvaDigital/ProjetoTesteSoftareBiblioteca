@@ -2,7 +2,8 @@
 
 # Atividade referente a disciplina de TESTE DE SOFTTWARE
 
-# o proposito é implementar em um codigo antigo feito na disciplina de POO, algumas funcionalidades.
+# O proposito é implementar em um codigo antigo feito na disciplina de POO, algumas funcionalidades a fim de aplicar TESTES DE SOFTWARE.
+Aplicaremos os testes antes da implementação...
 
 # Neste contexto apresento os atributos do código antigo
 # Atributos da Biblioteca:
