@@ -13,16 +13,16 @@ O livro para ser emprestado, tem que ter pelo menos 2 exemplares. O usuário nã
 - GET nome;
 - ADD catalogo;
 - GET catalogos;
-- SET Usuario;
-- GET Usuario;
+- SET usuario;
+- GET usuario;
 - SET bibliotecaria;
 - GET bibliotecarias;
 
 # Livro
 - SET Titulo;
 - GET titulo;
-- SET Autor;
-- GET Autor;
+- SET autor;
+- GET autor;
 - SET codigoUnico;
 - GET codigoUnico;
 - SET exemplar;
