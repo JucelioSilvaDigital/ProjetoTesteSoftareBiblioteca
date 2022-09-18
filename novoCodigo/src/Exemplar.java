@@ -30,7 +30,7 @@ public class Exemplar {
     // gera um numero unico para o exemplar (numero unico por cada livro)
     private void setExemplarNum() {
         this.exemplarNum = this.livro.getListaExemplares().size() + 1;
-        System.out.println("Exemplar "+ exemplarNum +" cadastrado  com sucesso!");
+        System.out.println("Exemplar " + exemplarNum + " cadastrado  com sucesso!");
     }
 
     // mostra se está empresprado ou nao (true/false)

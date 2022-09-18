@@ -1,20 +1,27 @@
 public class Bibliotecaria {
     private Usuario bibliotecaria;
 
+    // construtor
     public Bibliotecaria(Biblioteca biblioteca, Usuario bibliotecaria) {
         this.bibliotecaria = bibliotecaria;
         biblioteca.setAddBibliotecaria(this);
     }
 
+    // empresta livro
     public void emprestar(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
+        // verifica se o livre existe na biblioteca
         if (biblioteca.getListLivroNaBiblioteca().contains(exemplar.getLivro())) {
+            // verifica se o exemplar está disponivel
             if (exemplar.isEmprestado()) {
                 System.out.println("Livro/exemplar já emprestado");
+                // verifica se o usuario já tomou emprestado um exemplar do livro
             } else if (usuario.getListaLivros().contains(exemplar.getLivro())) {
                 System.out.println("Usuario já emprestou um exemplar deste mesmo livro!");
+                // verifica se o usuário está cadastrado na biblioteca
             } else if (!biblioteca.getListUsuariaoDaBiblioteca().contains(usuario)) {
                 System.out.println("Usuario " + usuario.getNome() + " não está cadastrado na biblioteca!");
             } else {
+                // realiza o emprestimo
                 if (usuario.anexaLivroEmprestado(exemplar)) {
                     exemplar.setEmprestado(true);
                     exemplar.setUsuario(usuario);
@@ -30,17 +37,24 @@ public class Bibliotecaria {
 
     }
 
+    // devolve livro
     public void devolver(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
+        //verifica se o livro existe na biblioteca
         if (biblioteca.getListLivroNaBiblioteca().contains(exemplar.getLivro())) {
+            //o livro que está tentando devolver, não havia sido emprestado
             if (!exemplar.isEmprestado()) {
                 System.out.println("Erro: Livro/exemplar encontra-se na prateleira");
+                //verifica se o usuario possui algum livro a devolver
             } else if (usuario.getListaLivros().size() < 1) {
                 System.out.println("Usuário não possui livro a ser devolvido");
+                //verifica se está devolvendo o livro correto
             } else if (!usuario.getListaLivros().contains(exemplar.getLivro())) {
                 System.out.println("Usuário não está devolvendo o mesmo livro/exemplar");
-            } else if(!biblioteca.getListUsuariaoDaBiblioteca().contains(usuario)){
+                //verifica se o usuario está cadastrado
+            } else if (!biblioteca.getListUsuariaoDaBiblioteca().contains(usuario)) {
                 System.out.println("Usuario " + usuario.getNome() + " não está cadastrado na biblioteca!");
-            }else {
+            } else {
+                //realiza a devolução do livro 
                 if (usuario.desanexaLivroEmprestado(exemplar)) {
                     exemplar.setEmprestado(false);
                     exemplar.setUsuario(null);
@@ -59,29 +73,28 @@ public class Bibliotecaria {
         return bibliotecaria;
     }
 
-    public void addUsu(Biblioteca biblioteca, Usuario usuario){
+    public void addUsu(Biblioteca biblioteca, Usuario usuario) {
         biblioteca.setAddUsuarioNaBiblioteca(usuario);
     }
 
-
     public void exibeLivrosDisponiveis(Biblioteca biblioteca) {
-		System.out.println("Livros Disponíveis para Empréstimo");
+        System.out.println("Livros Disponíveis para Empréstimo");
         biblioteca.atualizaStatus();
-		for (Livro livro : biblioteca.getListLivroNaBiblioteca()) {
-			if(livro.isDisponibilidade()) {
-				System.out.println(livro.getTitulo());
-			}
-		}
-	}
-	
-	public void exibeLivrosIndisponiveis(Biblioteca biblioteca) {
-		System.out.println("Livros Indisponíveis para Empréstimo");
+        for (Livro livro : biblioteca.getListLivroNaBiblioteca()) {
+            if (livro.isDisponibilidade()) {
+                System.out.println(livro.getTitulo());
+            }
+        }
+    }
+
+    public void exibeLivrosIndisponiveis(Biblioteca biblioteca) {
+        System.out.println("Livros Indisponíveis para Empréstimo");
         biblioteca.atualizaStatus();
-		for (Livro livro : biblioteca.getListLivroNaBiblioteca()) {
-			if(!livro.isDisponibilidade()) {
-				System.out.println(livro.getTitulo());
-			}
-		}
-	}
+        for (Livro livro : biblioteca.getListLivroNaBiblioteca()) {
+            if (!livro.isDisponibilidade()) {
+                System.out.println(livro.getTitulo());
+            }
+        }
+    }
 
 }
