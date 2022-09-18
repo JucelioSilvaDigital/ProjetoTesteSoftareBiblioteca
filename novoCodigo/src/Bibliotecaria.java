@@ -39,22 +39,22 @@ public class Bibliotecaria {
 
     // devolve livro
     public void devolver(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
-        //verifica se o livro existe na biblioteca
+        // verifica se o livro existe na biblioteca
         if (biblioteca.getListLivroNaBiblioteca().contains(exemplar.getLivro())) {
-            //o livro que está tentando devolver, não havia sido emprestado
+            // o livro que está tentando devolver, não havia sido emprestado
             if (!exemplar.isEmprestado()) {
                 System.out.println("Erro: Livro/exemplar encontra-se na prateleira");
-                //verifica se o usuario possui algum livro a devolver
+                // verifica se o usuario possui algum livro a devolver
             } else if (usuario.getListaLivros().size() < 1) {
                 System.out.println("Usuário não possui livro a ser devolvido");
-                //verifica se está devolvendo o livro correto
+                // verifica se está devolvendo o livro correto
             } else if (!usuario.getListaLivros().contains(exemplar.getLivro())) {
                 System.out.println("Usuário não está devolvendo o mesmo livro/exemplar");
-                //verifica se o usuario está cadastrado
+                // verifica se o usuario está cadastrado
             } else if (!biblioteca.getListUsuariaoDaBiblioteca().contains(usuario)) {
                 System.out.println("Usuario " + usuario.getNome() + " não está cadastrado na biblioteca!");
             } else {
-                //realiza a devolução do livro 
+                // realiza a devolução do livro
                 if (usuario.desanexaLivroEmprestado(exemplar)) {
                     exemplar.setEmprestado(false);
                     exemplar.setUsuario(null);
@@ -69,14 +69,17 @@ public class Bibliotecaria {
         }
     }
 
+    // retorna nome da biblioteca
     public Usuario getBibliotecaria() {
         return bibliotecaria;
     }
 
+    // adiciona usuario a biblioteca
     public void addUsu(Biblioteca biblioteca, Usuario usuario) {
         biblioteca.setAddUsuarioNaBiblioteca(usuario);
     }
 
+    // exibe os livros disponiveis na biblioteca
     public void exibeLivrosDisponiveis(Biblioteca biblioteca) {
         System.out.println("Livros Disponíveis para Empréstimo");
         biblioteca.atualizaStatus();
@@ -87,6 +90,7 @@ public class Bibliotecaria {
         }
     }
 
+    // exibe os livros indisponiveis
     public void exibeLivrosIndisponiveis(Biblioteca biblioteca) {
         System.out.println("Livros Indisponíveis para Empréstimo");
         biblioteca.atualizaStatus();
