@@ -38,4 +38,4 @@ O livro para ser emprestado, tem que ter pelo menos 2 exemplares. O usuário nã
 - Podemos também trabalhar com uma class exemplar;
 
 # Observação
-Não foram aplicadas todas as implementações sugeridas pelo professor, porém o que foi implementado já é suficiente para realizar os testes no JUNIT.
+Não foram aplicadas todas as implementações determinadas pelo professor, porém implementado já foi o suficiente para realizar os testes no JUNIT.
