@@ -1,9 +1,10 @@
 # ProjetoTesteSoftwareBiblioteca
 
 # Atividade referente a disciplina de TESTE DE SOFTTWARE
+Será usado o https://junit.org/junit5/ para realizar os teste.
 
 # O proposito é implementar em um codigo antigo feito na disciplina de POO, algumas funcionalidades a fim de aplicar TESTES DE SOFTWARE.
-Aplicaremos os testes antes da implementação...
+Os testes serão aplicados antes da implementação...
 
 # Neste contexto apresento os atributos do código antigo
 # Atributos da Biblioteca:
