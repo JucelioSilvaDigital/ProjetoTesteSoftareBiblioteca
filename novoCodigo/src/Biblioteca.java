@@ -4,78 +4,76 @@ public class Biblioteca {
 	private String nome;
 	private ArrayList<Livro> catalogoLivros = new ArrayList<>();
 	private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+	private ArrayList<Bibliotecaria> listaBibliotecaria = new ArrayList<>();
+
 	public Biblioteca(String nome) {
 		super();
-		this.nome = nome;
+		setNome(nome);
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
+		System.out.println("Biblioteca foi criada com sucesso!");
 	}
+
 	public void cadastrarUsuario(Usuario usuario) {
-		if(listaUsuarios.contains(usuario)) {
+		if (listaUsuarios.contains(usuario)) {
 			System.out.println("O Usuário já existe no sistema.");
-		}else {
+		} else {
 			listaUsuarios.add(usuario);
 		}
-		
+
 	}
-	
+
 	public void cadastrarLivro(Livro livro) {
-		if(catalogoLivros.contains(livro)) {
+		if (catalogoLivros.contains(livro)) {
 			System.out.println("Esse livro já existe no sistema.");
-		}else {
+		} else {
 			catalogoLivros.add(livro);
 		}
 	}
-	
-	public void emprestar(Usuario usuario, Livro livro) {
-		if(catalogoLivros.contains(livro)) {
-			if(livro.isDisponibilidade()) {
-				usuario.anexaLivroEmprestado(livro);
+
+	public void setAddBibliotecaria(Bibliotecaria bibliotecaria) {
+		this.listaBibliotecaria.add(bibliotecaria);
+		System.out.println("Bibliotecario(a) " + bibliotecaria.getBibliotecaria().getNome()
+				+ " foi adicionado(a) na biblioteca: " + getNome());
+	}
+
+	public int qtdLivros() {
+		return catalogoLivros.size();
+	}
+
+	public void setAddLivro(Livro livro) {
+		catalogoLivros.add(livro);
+	}
+
+	public ArrayList<Livro> getListLivroNaBiblioteca() {
+		return catalogoLivros;
+	}
+
+	public ArrayList<Usuario> getListUsuariaoDaBiblioteca() {
+		return listaUsuarios;
+	}
+
+	public void setAddUsuarioNaBiblioteca(Usuario usuario) {
+		this.listaUsuarios.add(usuario);
+	}
+
+	public void atualizaStatus() {
+		for (Livro livro : catalogoLivros) {
+			int aux = 0;
+			for (Exemplar exemplar : livro.getListaExemplares()) {
+				if (!exemplar.isEmprestado()) {
+					aux++;
+				}
+			}
+
+			if (aux == 0) {
 				livro.setDisponibilidade(false);
-				livro.setUsuarioEmprestado(usuario);
-				System.out.println(livro.getTitulo()+" Emprestado com sucesso!");
-			}else {
-				System.out.println("Livro não disponível para empréstimo");
-			}
-		}else {
-			System.out.println("Esse Livro não existe");
-		}
-		
-	}
-	
-	public void devolver(Usuario usuario, Livro livro) {
-		if(catalogoLivros.contains(livro)) {
-			if(!livro.isDisponibilidade()) {
-				usuario.desanexaLivroEmprestado(livro);
-				livro.setDisponibilidade(true);
-				livro.setUsuarioEmprestado(null);
-				System.out.println("Devolução realizada com sucesso!");
-			}else {
-				System.out.println("Esse livro não pode ser devolvido, porque ele está disponível para empréstimo");
-			}
-		}else {
-			System.out.println("Esse livro não existe para devolução");
-		}
-	}
-	
-	public void exibeLivrosDisponiveis() {
-		System.out.println("Livros Disponíveis para Empréstimo");
-		for (Livro livro : catalogoLivros) {
-			if(livro.isDisponibilidade()) {
-				System.out.println(livro.getTitulo());
-			}
-		}
-	}
-	
-	public void exibeLivrosIndisponiveis() {
-		System.out.println("Livros Indisponíveis para Empréstimo");
-		for (Livro livro : catalogoLivros) {
-			if(!livro.isDisponibilidade()) {
-				System.out.println(livro.getTitulo());
 			}
 		}
 	}
