@@ -8,7 +8,7 @@ public class Bibliotecaria {
     }
 
     // empresta livro
-    public void emprestar(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
+    public boolean emprestar(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
         // verifica se o livre existe na biblioteca
         if (biblioteca.getListLivroNaBiblioteca().contains(exemplar.getLivro())) {
             // verifica se o exemplar está disponivel
@@ -26,6 +26,7 @@ public class Bibliotecaria {
                     exemplar.setEmprestado(true);
                     exemplar.setUsuario(usuario);
                     System.out.println(exemplar.getLivro().getTitulo() + " Emprestado com sucesso!");
+                    return true;
                 } else {
                     System.out.println("Erro inesperado ao emprestar livro");
                 }
@@ -34,11 +35,11 @@ public class Bibliotecaria {
         } else {
             System.out.println("Esse Livro não existe na biblioteca");
         }
-
+        return false;
     }
 
     // devolve livro
-    public void devolver(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
+    public boolean devolver(Biblioteca biblioteca, Usuario usuario, Exemplar exemplar) {
         // verifica se o livro existe na biblioteca
         if (biblioteca.getListLivroNaBiblioteca().contains(exemplar.getLivro())) {
             // o livro que está tentando devolver, não havia sido emprestado
@@ -59,6 +60,7 @@ public class Bibliotecaria {
                     exemplar.setEmprestado(false);
                     exemplar.setUsuario(null);
                     System.out.println("Devolução realizada com sucesso!");
+                    return true;
                 } else {
                     System.out.println("Erro inesperado ao devolver livro");
                 }
@@ -67,6 +69,7 @@ public class Bibliotecaria {
         } else {
             System.out.println("Esse livro não existe para devolução");
         }
+        return false;
     }
 
     // retorna nome da biblioteca
