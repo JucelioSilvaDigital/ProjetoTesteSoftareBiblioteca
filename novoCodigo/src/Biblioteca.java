@@ -24,29 +24,39 @@ public class Biblioteca {
 	}
 
 	// cadastra usuario na biblioteca
-	public void cadastrarUsuario(Usuario usuario) {
+	public boolean cadastrarUsuario(Usuario usuario) {
 		if (listaUsuarios.contains(usuario)) {
 			System.out.println("O Usuário já existe no sistema.");
+			return false;
 		} else {
 			listaUsuarios.add(usuario);
+			return true;
 		}
 
 	}
 
 	// cadastra livro na biblioteca
-	public void cadastrarLivro(Livro livro) {
+	public boolean cadastrarLivro(Livro livro) {
 		if (catalogoLivros.contains(livro)) {
 			System.out.println("Esse livro já existe no sistema.");
-		} else {
-			catalogoLivros.add(livro);
+			return false;
 		}
+			catalogoLivros.add(livro);
+			return true;
+		
 	}
 
 	// adiciona um funcionario a biblioteca (bibliotecaria)
-	public void setAddBibliotecaria(Bibliotecaria bibliotecaria) {
-		this.listaBibliotecaria.add(bibliotecaria);
-		System.out.println("Bibliotecario(a) " + bibliotecaria.getBibliotecaria().getNome()
-				+ " foi adicionado(a) na biblioteca: " + getNome());
+	public boolean setAddBibliotecaria(Bibliotecaria bibliotecaria) {
+		if(listaBibliotecaria.contains(bibliotecaria)){
+			System.out.println("Esse livro já existe no sistema.");
+			return false;
+		}
+			this.listaBibliotecaria.add(bibliotecaria);
+			System.out.println("Bibliotecario(a) " + bibliotecaria.getBibliotecaria().getNome()
+					+ " foi adicionado(a) na biblioteca: " + getNome());
+					return true;
+		
 	}
 
 	// retorna a quantidade de livros
