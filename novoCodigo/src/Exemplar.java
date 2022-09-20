@@ -18,8 +18,9 @@ public class Exemplar {
     }
 
     // define um livro para o exempla
-    public void setLivro(Livro livro) {
+    public boolean setLivro(Livro livro) {
         this.livro = livro;
+        return true;
     }
 
     // mostra o numero unico do exemplar
@@ -28,9 +29,10 @@ public class Exemplar {
     }
 
     // gera um numero unico para o exemplar (numero unico por cada livro)
-    private void setExemplarNum() {
+    public int setExemplarNum() {
         this.exemplarNum = this.livro.getListaExemplares().size() + 1;
         System.out.println("Exemplar " + exemplarNum + " cadastrado  com sucesso!");
+        return this.exemplarNum;
     }
 
     // mostra se está empresprado ou nao (true/false)

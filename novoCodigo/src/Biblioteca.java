@@ -41,22 +41,22 @@ public class Biblioteca {
 			System.out.println("Esse livro já existe no sistema.");
 			return false;
 		}
-			catalogoLivros.add(livro);
-			return true;
-		
+		catalogoLivros.add(livro);
+		return true;
+
 	}
 
 	// adiciona um funcionario a biblioteca (bibliotecaria)
 	public boolean setAddBibliotecaria(Bibliotecaria bibliotecaria) {
-		if(listaBibliotecaria.contains(bibliotecaria)){
-			System.out.println("Esse livro já existe no sistema.");
+		if (listaBibliotecaria.contains(bibliotecaria)) {
+			System.out.println("Essa bibliotecaria já existe no sistema.");
 			return false;
 		}
-			this.listaBibliotecaria.add(bibliotecaria);
-			System.out.println("Bibliotecario(a) " + bibliotecaria.getBibliotecaria().getNome()
-					+ " foi adicionado(a) na biblioteca: " + getNome());
-					return true;
-		
+		this.listaBibliotecaria.add(bibliotecaria);
+		System.out.println("Bibliotecario(a) " + bibliotecaria.getBibliotecaria().getNome()
+				+ " foi adicionado(a) na biblioteca: " + getNome());
+		return true;
+
 	}
 
 	// retorna a quantidade de livros
@@ -65,8 +65,13 @@ public class Biblioteca {
 	}
 
 	// adiciona livro a lista de livros
-	public void setAddLivro(Livro livro) {
+	public boolean setAddLivro(Livro livro) {
+		if (catalogoLivros.contains(livro)) {
+			System.out.println("Esse livro já existe no sistema.");
+			return false;
+		}
 		catalogoLivros.add(livro);
+		return true;
 	}
 
 	// retorna a lista de livros
@@ -80,13 +85,18 @@ public class Biblioteca {
 	}
 
 	// adiciona usuario na lista de usuarios
-	public void setAddUsuarioNaBiblioteca(Usuario usuario) {
+	public boolean setAddUsuarioNaBiblioteca(Usuario usuario) {
+		if(listaUsuarios.contains(usuario)){
+			System.out.println("Usuario já cadastrado no sistema");
+			return false;
+		}
 		this.listaUsuarios.add(usuario);
+		return true;
 	}
 
 	// atuializa o status para false cado a quantidade de livros emprestados seja
 	// zero
-	public void atualizaStatus() {
+	public boolean atualizaStatus() {
 		for (Livro livro : catalogoLivros) {
 			int aux = 0;
 			for (Exemplar exemplar : livro.getListaExemplares()) {
@@ -97,8 +107,11 @@ public class Biblioteca {
 
 			if (aux == 0) {
 				livro.setDisponibilidade(false);
+				return true;
 			}
+			
 		}
+		return false;
 	}
 
 }

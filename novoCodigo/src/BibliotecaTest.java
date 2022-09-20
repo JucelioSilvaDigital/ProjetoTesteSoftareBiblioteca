@@ -31,16 +31,40 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void test3() {//cadastrar livro
+    public void test3() {//adiciona livro na biblioteca livro
         //espera-se false porque o livro está sendo adicionado no construtor de livros
         assertEquals(false, biblioteca.cadastrarLivro(livro));
     }
 
     @Test
-    public void test4() {//cadastrar livro
+    public void test4() {//adiciona livro na biblioteca livro
         //espera-se false porque o livro está sendo adicionado no construtor de livros
         biblioteca.cadastrarLivro(livro);
         assertEquals(false, biblioteca.cadastrarLivro(livro));
     }
+
+    @Test
+    public void test5() {//adiciona bibliotecaria para uma biblioteca
+        //espera-se false pq já está ocorrendo a adição na criação do objeto bibliotecaria
+        assertEquals(false, biblioteca.setAddBibliotecaria(bibliotecaria));
+    }
+
+    @Test
+    public void test6() {//adiciona livro para uma biblioteca
+        //espera-se false pq já está ocorrendo a adição na criação do objeto livro
+        assertEquals(false, biblioteca.setAddLivro(livro));
+    }
+
+    @Test
+    public void test7() {//cadastrando usuario para a biblioteca
+        assertEquals(true, biblioteca.setAddUsuarioNaBiblioteca(usuario));
+    }
+
+    @Test
+    public void test8() {//cadastrando o mesmo usuario para a biblioteca 2x
+        biblioteca.setAddUsuarioNaBiblioteca(usuario);
+        assertEquals(false, biblioteca.setAddUsuarioNaBiblioteca(usuario));
+    }
+
 }
     
