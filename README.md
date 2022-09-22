@@ -34,8 +34,9 @@ O livro para ser emprestado, tem que ter pelo menos 2 exemplares. O usuário nã
 - Mostrar livros disponíveis e já emprestados por ordem numérica do catálogo; 
 
 # Sendo assim
-- Precisamos da class bibliotecária;
-- Podemos também trabalhar com uma class exemplar;
+- Podemos optar por criar uma class bibliotecária;
+- Também trabalhar com uma class exemplar;
+Considerando que não precisamos usar uma boa logica para o sistema já que o foco principal é executar testes.
 
 # Observação
 Não foram aplicadas todas as implementações determinadas pelo professor, porém o implementado já foi o suficiente para realizar os testes no JUNIT.
